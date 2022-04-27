@@ -31,5 +31,5 @@ jobs:
       run: |
         cd api_yamdb/
         python manage.py test
-        cd ..
-        pytest
+        # cd ..
+        # pytest
