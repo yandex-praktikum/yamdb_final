@@ -1,3 +1,9 @@
+from api.exceptions import UserValueException
+from api.permisions import IsAdmin, IsAdminOrReadOnly, ReviewCommentPermission
+from api.serializers import (CategorySerializer, CommentSerializer,
+                             ConfirmationSerializer, GenreSerializer,
+                             ReviewSerializer, TitleSerializer,
+                             TokenSerializer, UsersSerializer)
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import send_mail
 from django.db.models import Avg
@@ -10,14 +16,8 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
 from reviews.models import Category, Comment, Genre, Review, Title, User
-from api.exceptions import UserValueException
-from api.permisions import IsAdmin, IsAdminOrReadOnly, ReviewCommentPermission
-from api.serializers import (CategorySerializer, CommentSerializer,
-                             ConfirmationSerializer, GenreSerializer,
-                             ReviewSerializer, TitleSerializer,
-                             TokenSerializer, UsersSerializer)
+
 from api_yamdb.settings import EMAIL_HOST_USER
 
 
