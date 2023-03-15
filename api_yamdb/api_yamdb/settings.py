@@ -3,6 +3,7 @@ import os
 import sys
 
 from datetime import timedelta
+from dotenv import load_dotenv, find_dotenv
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,7 +30,7 @@ logging.basicConfig(
     ),
     handlers=[logging.StreamHandler(stream=sys.stdout)],
 )
-
+load_dotenv(find_dotenv())
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv(
     'DJANGO_SECRET_KEY', 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
@@ -97,7 +98,6 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 
 
 # Database
-
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.postgresql'),
